@@ -123,7 +123,25 @@ public class PorPrecio extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTPrecio2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTPrecio2KeyPressed
+        borrarFilas();
+        if (!jTPrecio2.getText().equals("")&&!jTPrecio1.getText().equals("")){
+            String p1S = jTPrecio1.getText();
+             Double p1=Double.parseDouble(p1S);
         
+        String p2S = jTPrecio2.getText();
+             Double p2=Double.parseDouble(p2S);
+            
+             for(Producto prod : MenuGeneral.productos) {
+            
+            double pre=prod.getPrecio();
+            
+            if (pre>p1&&pre<p2) {
+                 comp.addRow(new Object[]{
+                            prod.getCodigo(),
+                            prod.getDescripcion(),
+                            prod.getPrecio(),
+                            prod.getStock(),
+           });
             
     }        
                             
